@@ -166,8 +166,6 @@ class Submit extends CI_Controller
 		$this->filetype = $this->_language_to_type(strtolower(trim($this->input->post('language'))));
 		$this->ext = substr(strrchr($_FILES['userfile']['name'],'.'),1); // uploaded file extension
 		$this->file_name = basename($_FILES['userfile']['name'], ".{$this->ext}"); // uploaded file name without extension
-		$this->file_name = trim($this->file_name);
-		$this->file_name = str_replace(' ', '_', $this->file_name); // replace spaces with underscores
 		if ( $this->queue_model->in_queue($this->user->username,$this->user->selected_assignment['id'], $this->problem['id']) )
 			show_error('You have already submitted for this problem. Your last submission is still in queue.');
 		if ($this->user->level==0 && !$this->user->selected_assignment['open'])

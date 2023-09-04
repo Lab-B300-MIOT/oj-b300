@@ -21,15 +21,3 @@ e.g. If you want to disallow goto, add this line:
 #define fork errorNo10       //Fork is not allowed
 #define clone errorNo11      //Clone is not allowed
 #define sleep errorNo12      //Sleep is not allowed
-#define execlp errorNo13      //Execlp is not allowed
-#define execvp errorNo14      //Execvp is not allowed
-#define execvpe errorNo15     //Execvpe is not allowed
-#define execlp errorNo16      //Execlp is not allowed
-#define execl errorNo17      //Execl is not allowed
-#define execle errorNo18      //Execle is not allowed
-#define execv errorNo19      //Execv is not allowed
-#define socket errorNo20      //socket is not allowed
-#define bind errorNo21      //socket is not allowed
-#define listen errorNo22      //socket is not allowed
-#define accept errorNo23      //socket is not allowed
-#define connect errorNo24      //socket is not allowed

@@ -1,4 +1,8 @@
-
+{#
+ # Sharif Judge
+ # file: register.twig
+ # author: Mohammad Javad Naderi <mjnaderi@gmail.com>
+ #}
 {% set title = 'Register' %}
 {% include 'templates/simple_header.twig' %}
 
@@ -7,10 +11,10 @@
 
 	<div class="judge_logo">
 		<a href="{{ site_url() }}"><img src="{{ base_url('assets/images/banner.png') }}"/></a>
-<br>	</div>
+	</div>
 
 	<div class="login_form">
-<br>		<div class="login1">
+		<div class="login1">
 			{% if registration_code_required %}
 			<p>
 				<label for="form_reg_code">Registration Code</label><br/>
@@ -19,7 +23,7 @@
 			</p>
 			{% endif %}
 			<p>
-				<label for="form_username">NRP</label><br/>
+				<label for="form_username">Username</label><br/>
 				<input id="form_username" type="text" name="username" required="required" pattern="[0-9A-Za-z]{3,20}" title="The Username field must be between 3 and 20 characters in length, and contain only alpha-numeric characters" class="sharif_input" value="{{ set_value('username') }}"/>
 				{{ form_error('username', '<div class="shj_error">', '</div>') }}
 			</p>

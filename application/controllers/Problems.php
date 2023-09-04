@@ -42,11 +42,6 @@ class Problems extends CI_Controller
 			$assignment_id = $this->user->selected_assignment['id'];
 		if ($assignment_id == 0)
 			show_error('No assignment selected.');
-		if ($this->user->level == 0){
-			if ($this->user->selected_assignment['open'] == 0) {
-				show_error('Assignment is still closed');
-			}
-		}
 
 		$assignment = $this->assignment_model->assignment_info($assignment_id);
 
