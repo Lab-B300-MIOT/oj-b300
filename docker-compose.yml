@@ -1,0 +1,38 @@
+services:
+  sharif-judge:
+    image: liuyang1204/docker-sharif-judge
+    ports:
+      - 80:80
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=postgres
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+    volumes:
+      - site:/var/www/html/
+      - tester-data:/data/tester/
+      - assignments-data:/data/assignments/
+    networks:
+      - sharif-judge-net
+  db:
+    image: postgres:13-alpine
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - 5432
+    networks:
+      - sharif-judge-net
+volumes:
+  db-data:
+  tester-data:
+  assignments-data:
+  site:
+networks:
+  sharif-judge-net:
