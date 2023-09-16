@@ -1,0 +1,38 @@
+services:
+  sharif-judge:
+    image: liuyang1204/docker-sharif-judge
+    ports:
+      - 80:80
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=dbname ##DB Name, ingat ganti sebelum deploy
+      - DB_USER=dbuser ##DB User, ingat ganti sebelum deploy
+      - DB_PASSWORD=dbpass ##DB Pass, ingat ganti sebelum deploy
+    volumes:
+      - site:/var/www/html/
+      - tester-data:/data/tester/
+      - assignments-data:/data/assignments/
+    networks:
+      - sharif-judge-net
+  db:
+    image: postgres:13-alpine
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres ##DB Name, ingat ganti sebelum deploy
+      - POSTGRES_USER=postgres ##DB User, ingat ganti sebelum deploy
+      - POSTGRES_PASSWORD=postgres ##DB Pass, ingat ganti sebelum deploy
+    ports:
+      - 5432
+    networks:
+      - sharif-judge-net
+volumes:
+  db-data:
+  tester-data:
+  assignments-data:
+  site:
+networks:
+  sharif-judge-net:
