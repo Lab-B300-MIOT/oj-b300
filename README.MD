@@ -64,4 +64,4 @@ For a complete tutorial on this, please refer to https://github.com/mjnaderi/Sha
 - Paste it at participant field when you create an assignment
 ![Paste it in the box](assets/img/participant.png)
 
-Now you can schedule which group can participate on each session.
+Now you can schedule which group can participate on each session. Don't forget to Close the Assignment after the session end so no one can access it outside the session.
