@@ -1,4 +1,5 @@
 # Online Judge
+### Extra, consider to use this in the future: https://github.com/truongan/wecode-judge.git
 ## How to install:
 1. Clone this repo
 2. Change database info
